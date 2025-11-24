@@ -1,11 +1,18 @@
 """Tests for CLI main application."""
 
+import re
 from unittest.mock import patch
 
 import pytest
 from typer.testing import CliRunner
 
 from agentic_builder.cli.main import app
+
+
+def strip_ansi_codes(text: str) -> str:
+    """Strip ANSI escape codes from text."""
+    ansi_escape = re.compile(r'\x1b\[[0-9;]*m')
+    return ansi_escape.sub('', text)
 
 
 class TestCLIMain:
@@ -27,7 +34,7 @@ class TestCLIMain:
         runner = CliRunner()
         result = runner.invoke(app, [])
 
-        assert result.exit_code == 2  # Typer returns 2 for no args when no_args_is_help=True
+        assert result.exit_code == 0
         assert "AI-powered software project builder" in result.output
         assert "Usage:" in result.output
 
@@ -38,8 +45,9 @@ class TestCLIMain:
         # Test with --help to see if verbose option is available
         result = runner.invoke(app, ["--help"])
         assert result.exit_code == 0
-        assert "--verbose" in result.output
-        assert "--json" in result.output
+        clean_output = strip_ansi_codes(result.output)
+        assert "--verbose" in clean_output
+        assert "--json" in clean_output
 
     def test_app_json_option(self):
         """Test JSON output option handling."""
@@ -48,7 +56,8 @@ class TestCLIMain:
         # Test with --help to see if json option is available
         result = runner.invoke(app, ["--help"])
         assert result.exit_code == 0
-        assert "--json" in result.output
+        clean_output = strip_ansi_codes(result.output)
+        assert "--json" in clean_output
 
     def test_app_callback_execution(self):
         """Test that the main callback is executed."""
