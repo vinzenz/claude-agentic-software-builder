@@ -5,15 +5,8 @@ from agentic_builder.agents.registry import get_model_for_agent
 from agentic_builder.agents.response_parser import AgentResponse, parse_response
 from agentic_builder.api.claude_cli import ClaudeCLI
 from agentic_builder.context.budget import record_usage
-from agentic_builder.core.constants import AgentType, ModelTier, TaskStatus
+from agentic_builder.core.constants import AgentType, ModelTier, TaskStatus, MODEL_ALIASES
 from agentic_builder.storage import tasks as task_storage
-
-# Model aliases for Claude Code CLI
-MODEL_ALIASES = {
-    ModelTier.HAIKU: "haiku",
-    ModelTier.SONNET: "sonnet",
-    ModelTier.OPUS: "opus",
-}
 
 
 async def execute_agent(

@@ -99,3 +99,10 @@ BUDGET_WARNING_THRESHOLD = 0.8
 MAX_CHARS_PER_DEPENDENCY = 8000
 MAX_TOTAL_CONTEXT_CHARS = 32000
 SUMMARY_TARGET_CHARS = 1000
+
+# Model aliases for Claude Code CLI
+MODEL_ALIASES = {
+    ModelTier.HAIKU: ["haiku", "haiku-4.5"],
+    ModelTier.SONNET: ["sonnet", "sonnet-4.5"],
+    ModelTier.OPUS: ["opus", "opus-4.1"],
+}

@@ -3,6 +3,7 @@
 from agentic_builder.core.constants import (
     BUDGET_WARNING_THRESHOLD,
     DEFAULT_WORKFLOW_BUDGET,
+    MODEL_ALIASES,
     TOKEN_COSTS,
     ModelTier,
 )
@@ -50,13 +51,13 @@ def record_usage(
         Calculated cost in USD
     """
     # Try to parse model tier from model string
-    try:
-        if "-" in model:
-            tier_str = model.split("-")[1] if "-" in model else model
-        else:
-            tier_str = model
-        model_tier = ModelTier(tier_str.lower())
-    except ValueError:
+    model_tier = None
+    for tier, aliases in MODEL_ALIASES.items():
+        if model.lower() in [alias.lower() for alias in aliases]:
+            model_tier = tier
+            break
+    
+    if model_tier is None:
         model_tier = ModelTier.SONNET  # Default to sonnet
 
     cost = calculate_cost(model_tier, input_tokens, output_tokens)

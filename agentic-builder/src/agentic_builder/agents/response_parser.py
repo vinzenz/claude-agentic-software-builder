@@ -29,7 +29,13 @@ def extract_tag_content(xml: str, tag: str) -> str | None:
     """
     pattern = rf"<{tag}[^>]*>(.*?)</{tag}>"
     match = re.search(pattern, xml, re.DOTALL)
-    return match.group(1).strip() if match else None
+    if match:
+        content = match.group(1).strip()
+        # Handle CDATA sections
+        if content.startswith("<![CDATA[") and content.endswith("]]>"):
+            content = content[9:-3]  # Remove <![CDATA[ and ]]>
+        return content
+    return None
 
 
 def extract_list_items(xml: str, container_tag: str, item_tag: str) -> list[str]:
