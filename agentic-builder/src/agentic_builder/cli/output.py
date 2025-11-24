@@ -2,7 +2,6 @@
 
 from rich.console import Console
 from rich.table import Table
-from rich.panel import Panel
 from rich.progress import Progress, SpinnerColumn, TextColumn
 
 console = Console()

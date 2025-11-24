@@ -67,10 +67,6 @@ Respond with your output in the XML format specified in your system prompt."""
             max_turns=1,  # Single turn for agent execution
         )
 
-        execution_time = int(
-            (datetime.utcnow() - start_time).total_seconds() * 1000
-        )
-
         # Extract token usage from CLI response
         input_tokens = result.get("input_tokens", 0)
         output_tokens = result.get("output_tokens", 0)
