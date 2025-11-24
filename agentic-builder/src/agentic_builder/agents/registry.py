@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from agentic_builder.core.constants import AGENT_MODEL_TIERS, AgentType, ModelTier
+from agentic_builder.core.constants import AgentType, ModelTier
 
 
 @dataclass

@@ -1,7 +1,5 @@
 """Agent execution logic."""
 
-from datetime import datetime
-
 from agentic_builder.agents.prompt_loader import load_prompt
 from agentic_builder.agents.registry import get_model_for_agent
 from agentic_builder.agents.response_parser import AgentResponse, parse_response
@@ -58,7 +56,6 @@ Respond with your output in the XML format specified in your system prompt."""
 
         # Call Claude CLI in headless mode
         cli = ClaudeCLI()
-        start_time = datetime.utcnow()
 
         result = await cli.execute(
             prompt=user_message,

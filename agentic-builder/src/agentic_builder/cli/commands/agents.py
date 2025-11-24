@@ -42,7 +42,7 @@ def agents(
         console.print(f"Description: {config.description}")
         console.print(f"Model Tier: {config.model_tier.value}")
         console.print(f"Prompt File: {config.prompt_file}")
-        console.print(f"\nCapabilities:")
+        console.print("\nCapabilities:")
         for cap in config.capabilities:
             console.print(f"  • {cap}")
         return

@@ -85,7 +85,7 @@ def usage(
 
     console.print(f"\n[bold]Workflow:[/bold] {workflow['id']}")
     console.print(f"[bold]Type:[/bold] {workflow['workflow_type']}")
-    console.print(f"\n[bold]Token Usage:[/bold]")
+    console.print("\n[bold]Token Usage:[/bold]")
     console.print(f"  Input Tokens:  {usage_data['total_input']:,}")
     console.print(f"  Output Tokens: {usage_data['total_output']:,}")
     console.print(f"  Total Tokens:  {usage_data['total_tokens']:,}")
