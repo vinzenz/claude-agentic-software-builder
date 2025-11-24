@@ -1,6 +1,5 @@
 """Tests for agent registry."""
 
-import pytest
 
 from agentic_builder.agents.registry import (
     AGENT_CONFIGS,

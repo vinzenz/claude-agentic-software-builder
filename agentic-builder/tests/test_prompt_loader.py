@@ -1,6 +1,5 @@
 """Tests for agent prompt loading."""
 
-import tempfile
 from pathlib import Path
 from unittest.mock import patch
 

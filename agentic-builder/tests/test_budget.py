@@ -9,7 +9,7 @@ from agentic_builder.context.budget import (
     is_budget_warning,
     record_usage,
 )
-from agentic_builder.core.constants import DEFAULT_WORKFLOW_BUDGET, ModelTier
+from agentic_builder.core.constants import ModelTier
 
 
 class TestCalculateCost:

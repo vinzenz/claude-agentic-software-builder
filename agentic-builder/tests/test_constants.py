@@ -1,6 +1,5 @@
 """Tests for core constants and enums."""
 
-import pytest
 
 from agentic_builder.core.constants import (
     AGENT_MODEL_TIERS,

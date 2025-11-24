@@ -1,11 +1,9 @@
 """Tests for core configuration."""
 
 import os
-import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
-import pytest
 
 from agentic_builder.core.config import Config, get_db_path, get_project_dir, get_prompts_dir
 

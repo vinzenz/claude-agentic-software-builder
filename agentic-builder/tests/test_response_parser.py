@@ -1,6 +1,5 @@
 """Tests for agent response parsing."""
 
-import pytest
 
 from agentic_builder.agents.response_parser import (
     AgentResponse,
